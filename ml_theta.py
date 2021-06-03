@@ -1,17 +1,21 @@
 from typing import List
+from ml_matrix_base import Matrix
 
 
-class Theta:
-    T: List[List[float]] = []
-    alpha: float = 0.005
+class Theta(Matrix):
+    alpha: float
+    lambd: float
 
     def __init__(self, _T: List[List[float]], alpha: float):
-        self.T = _T
+        super().__init__(_T, "Theta")
         self.alpha = alpha
+        self.lambd = 0.005
 
-    def __str__(self):
-        result: str = "--- Theta ---"
-        for row in self.T:
-            result = f"{result}\n{str(row)}"
-        return result
+
+def create_empty_theta(t: Theta) -> Theta:
+    empty_theta_vals: List[List[float]] = []
+    for i in range(0, t.l):
+        empty_theta_arr: List[float] = [0] * t.w
+        empty_theta_vals.append(empty_theta_arr)
+    return Theta(empty_theta_vals)
 
