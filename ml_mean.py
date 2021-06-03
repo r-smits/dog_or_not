@@ -1,9 +1,7 @@
 from typing import List
+from ml_matrix_base import Matrix
 
 
-# Mean, the average of the values
-def mean(values: List[float]) -> float:
-    return sum(values) / len(values)
 
 
 # Variance, sum of squared difference between values and the average value
@@ -19,3 +17,6 @@ def coveriance(x: List[float], y: List[float]) -> float:
     for i in range(0, len(x)):
     [covar = covar + (x[i] - x_mean) * (y[i] - y_mean) for i in range(0, len(x))]
     return covar
+
+
+
