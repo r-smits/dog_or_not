@@ -1,10 +1,10 @@
 from typing import List
-from ml_matrix_base import Matrix
+from dto.ml_matrix_base import Matrix
 
 
 class Hypothesis(Matrix):
 	exp: List[float] = []
-	y: List[float] = []
+	y: List[List[float]] = []
 
 	def __init__(self,
 														_X: List[List[float]],
@@ -20,6 +20,6 @@ class Hypothesis(Matrix):
 	def get_y(self, i: int) -> float:
 		return self.y[i]
 	
-	def vector_y(self) -> Matrix:
-		return Matrix([self.y], f"y_actual from {self.name}")
+	def mat_y(self) -> Matrix:
+		return Matrix(self.y, f"y_actual from {self.name}")
 
